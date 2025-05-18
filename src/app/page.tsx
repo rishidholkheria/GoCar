@@ -1,22 +1,15 @@
+import AboutUs from "./pages/AboutUs";
 import HeroSection from "./pages/HeroSection";
+import HolidaysPlans from "./pages/HolidaysPlans";
+import OurFleet from "./pages/OurFleet";
 
 export default function Home() {
   return (
     <div className="w-full h-screen">
       <HeroSection/>
-      <h2>aasdjsadjk</h2>
-      <h2>aasdjsadjk</h2>
-      <h2>aasdjsadjk</h2>
-      <h2>aasdjsadjk</h2>
-      <h2>aasdjsadjk</h2>
-      <h2>aasdjsadjk</h2>
-      <h2>aasdjsadjk</h2>
-      <h2>aasdjsadjk</h2>
-      <h2>aasdjsadjk</h2>
-      <h2>aasdjsadjk</h2>
-      <h2>aasdjsadjk</h2>
-      <h2>aasdjsadjk</h2>
-      <h2>aasdjsadjk</h2>
+      <AboutUs/>
+      <OurFleet/>
+      <HolidaysPlans/>
     </div>
   );
 }
