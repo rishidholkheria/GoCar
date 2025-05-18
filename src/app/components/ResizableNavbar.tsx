@@ -35,7 +35,7 @@ const ResizableNavbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="relative w-4/6 mx-auto">
+    <div className="relative w-4/6 mx-auto z-999">
       <Navbar className="p-3">
         {/* Desktop Navigation */}
         <NavBody className="px-8 bg-[#111F4D]" >
