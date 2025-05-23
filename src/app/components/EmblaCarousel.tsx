@@ -13,7 +13,7 @@ const EmblaCarousel = () => {
         <CarouselContent>
           <CarouselItem>
             <div className="min-h-2/3 bg-yellow-300 flex flex-col items-center justify-center">
-              <img src="" alt="" />
+              {/* <img src="" alt="" />  */}
             </div>
           </CarouselItem>
           <CarouselItem>

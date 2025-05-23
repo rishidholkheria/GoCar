@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 type Testimonial = {
   tripRoute: string;
   details: string;
-  pricePerKm: string;
+  pricePerKm: number;
   imageSrc: string;
 };
 export const AnimatedTestimonials = ({
