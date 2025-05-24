@@ -11,6 +11,7 @@ const HeroSection = () => {
   const [destination, setDestination] = useState("");
 
   const changeState = CabStore((state) => state.changeState);
+  const setLocations = CabStore((state) => state.setLocations);
 
   const router = useRouter();
 
@@ -37,6 +38,7 @@ const HeroSection = () => {
     const geoCode2 = await getGeoCodes(destination);
     console.log("G1 --- ", geoCode1);
     console.log("G2 ---", geoCode2);
+    setLocations({ source, destination });
     changeState({ sourceGeocode: geoCode1, destinationGeocode: geoCode2 });
     router.push("/select-cab");
   };
