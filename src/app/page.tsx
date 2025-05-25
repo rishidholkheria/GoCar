@@ -6,7 +6,7 @@ import OurFleet from "./pages/OurFleet";
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-[100vw] border-2 border-blue-700 box-border">
+    <div className="min-h-screen w-[100vw] box-border">
       <HeroSection />
       <AboutUs />
       <OurFleet />

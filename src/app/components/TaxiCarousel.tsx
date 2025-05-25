@@ -9,27 +9,32 @@ import {
 
 const TaxiCarousel = () => {
   return (
-    <div className="w-full min-h-[60vh] mt-5">
-      <Carousel className="w-full h-full flex flex-col justify-between p-4 box-border overflow-hidden">
-        <CarouselContent className="flex-1 h-full mx-2 bg-white p-0">
+    <div className="w-full mt-5">
+      <Carousel className="w-full flex flex-col justify-between p-2 box-border overflow-hidden">
+        <CarouselContent className="mx-2 bg-white p-0">
           {Array.from({ length: 5 }).map((_, index) => (
             <CarouselItem
               key={index}
-              className="pl-1 md:basis-1/2 lg:basis-1/3 flex h-[40vh] md:h-full"
+              className="pl-1 md:basis-1/2 lg:basis-1/3 flex"
             >
-              <div className="flex flex-col w-full h-full rounded-2xl relative">
-                <Card className="h-full p-0">
-                  <CardContent className="flex items-center justify-center w-full h-full p-0">
-                    <div className="w-full h-full relative">
+              <div className="flex flex-col w-full rounded-2xl relative bg-white shadow-md">
+                <Card className="p-0">
+                  <CardContent className="p-0">
+                    <div className="w-full relative flex flex-col">
+                      {/* Image Section */}
                       <img
                         src="/assets/carEx1.png"
                         alt="Taxi_Img"
-                        className="w-full h-[50%] object-cover mx-auto"
+                        className="w-full object-cover min-h-[180px] max-h-[220px] md:max-h-[250px] rounded-t-2xl"
                       />
-                      <button className="absolute bottom-[100px] right-4 m-4 rounded-full p-3 bg-lime-400">
+
+                      {/* FAB Button */}
+                      <button className="absolute bottom-[130px] right-4 m-2 rounded-full p-3 bg-lime-400 z-10">
                         FAB
                       </button>
-                      <div className="flex flex-col md:flex-row w-full p-4 rounded-b-xl bg-[#111F4D] text-white absolute bottom-0 min-h-[80px] sm:min-h-[140px] gap-2">
+
+                      {/* Info Section */}
+                      <div className="flex flex-col md:flex-row w-full p-4 rounded-b-xl bg-[#111F4D] text-white min-h-[140px] md:min-h-[80px] gap-2">
                         <h2 className="text-lg font-semibold">Swift Desire</h2>
                         <p className="text-sm md:ml-4">
                           AC | 4 Seater | Manual

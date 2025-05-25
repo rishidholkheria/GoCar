@@ -47,8 +47,8 @@ useEffect(() => {
     return Math.floor(Math.random() * 21) - 10;
   };
   return (
-    <div className="w-full h-screen overflow-hidden flex flex-col md:flex-row items-center justify-center px-4 md:px-12 py-8 bg-black rounded-2xl">
-      <div className="relative w-full md:w-1/2 h-[250px] md:h-full">
+    <div className="w-full h-screen overflow-hidden flex flex-col md:flex-row items-center justify-center md:px-12 py-8 bg-black rounded-2xl">
+      <div className="relative w-full md:w-1/2 h-[800px] md:h-full ml-5 md:ml-0">
         <AnimatePresence>
           {testimonials.map((testimonial, index) => (
             <motion.div
