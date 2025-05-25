@@ -4,11 +4,11 @@ import EmblaCarousel from "../components/EmblaCarousel";
 const AboutUs = () => {
   return (
     <div className="px-5 py-10 w-full">
-      <h1 className="text-4xl mt-10 font-bold">
+      <h1 className="text-4xl mt-10 font-bold text-center md:text-start">
         We Bring 10+ Years of Reliable Taxi Services
       </h1>
-      <div className="flex w-full mt-2">
-        <div className="w-1/2">
+      <div className="flex flex-col md:flex-row w-full justify-center items-center text-center md:text-start mt-2">
+        <div className="w-full md:w-1/2">
           <div className="px-5 py-9">
             <h2 className="text-gray-950 text-lg">100% Satisfaction</h2>
             <p className="text-gray-700 text-md">

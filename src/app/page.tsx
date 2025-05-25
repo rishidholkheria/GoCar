@@ -6,12 +6,12 @@ import OurFleet from "./pages/OurFleet";
 
 export default function Home() {
   return (
-    <div className="w-full h-screen">
-      <HeroSection/>
-      <AboutUs/>
-      <OurFleet/>
-      <HolidaysPlans/>
-      <Advantages/>
+    <div className="min-h-screen w-[100vw] border-2 border-blue-700 box-border">
+      <HeroSection />
+      <AboutUs />
+      <OurFleet />
+      <HolidaysPlans />
+      <Advantages />
     </div>
   );
 }

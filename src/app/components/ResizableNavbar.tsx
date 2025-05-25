@@ -48,8 +48,8 @@ const ResizableNavbar = () => {
         </NavBody>
 
         {/* Mobile Navigation */}
-        <MobileNav>
-          <MobileNavHeader>
+        <MobileNav className="absolute w-full mx-auto z-999 bg-[#111F4D] text-white">
+          <MobileNavHeader className="px-4">
             <NavbarLogo />
             <MobileNavToggle
               isOpen={isMobileMenuOpen}

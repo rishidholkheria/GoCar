@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from 'next/font/google'
 import "./globals.css";
+import "../lib/fontawesome";
 
 const outfit = Outfit({
   subsets: ['latin'],
