@@ -133,7 +133,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           {hovered === idx && (
             <motion.div
               layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-blue-700 "
+              className="absolute inset-0 h-full w-full rounded-full bg-[#333333]"
             />
           )}
           <span className="relative z-20">{item.name}</span>
@@ -164,7 +164,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
       }}
       className={cn(
         "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 lg:hidden",
-        visible && "bg-white/80 dark:bg-neutral-950/80",
+        visible && "bg-white/80",
         className
       )}
     >
@@ -226,7 +226,7 @@ export const MobileNavToggle = ({
   ) : (
     <IconMenu2 className="text-black dark:text-white" onClick={onClick} />
   );
-};
+};  
 
 export const NavbarLogo = () => {
   return (
@@ -280,7 +280,7 @@ export const NavbarButton = ({
       className={cn(baseStyles, variantStyles[variant], className)}
       {...props}
     >
-      {children}
+      {children}  
     </Tag>
   );
 };

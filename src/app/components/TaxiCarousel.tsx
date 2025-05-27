@@ -21,20 +21,18 @@ const TaxiCarousel = () => {
                 <Card className="p-0">
                   <CardContent className="p-0">
                     <div className="w-full relative flex flex-col">
-                      {/* Image Section */}
+                      
                       <img
                         src="/assets/carEx1.png"
                         alt="Taxi_Img"
                         className="w-full object-cover min-h-[180px] max-h-[220px] md:max-h-[250px] rounded-t-2xl"
                       />
 
-                      {/* FAB Button */}
-                      <button className="absolute bottom-[130px] right-4 m-2 rounded-full p-3 bg-lime-400 z-10">
+                      <button className="absolute bottom-[130px] right-4 m-2 rounded-full p-3 bg-[#FFBF00] z-10">
                         FAB
                       </button>
 
-                      {/* Info Section */}
-                      <div className="flex flex-col md:flex-row w-full p-4 rounded-b-xl bg-[#111F4D] text-white min-h-[140px] md:min-h-[80px] gap-2">
+                      <div className="flex flex-col md:flex-row w-full p-4 rounded-b-xl bg-[#151001] text-white min-h-[140px] md:min-h-[80px] gap-2">
                         <h2 className="text-lg font-semibold">Swift Desire</h2>
                         <p className="text-sm md:ml-4">
                           AC | 4 Seater | Manual

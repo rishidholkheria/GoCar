@@ -9,7 +9,7 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: "GocCar",
+  title: "GoCar",
   description: "Your budget friendly travel partner.",
 };
 

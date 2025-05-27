@@ -1,3 +1,4 @@
+// ResizableNavbar.jsx
 "use client";
 import {
   Navbar,
@@ -12,43 +13,39 @@ import {
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
 
-const ResizableNavbar = () => {
-  const navItems = [
-    {
-      name: "Home",
-      link: "#features",
-    },
-    {
-      name: "Taxis available",
-      link: "#pricing",
-    },
-    {
-      name: "Contact",
-      link: "#contact",
-    },
-    {
-      name: "Call Us",
-      link: "#contact",
-    },
-  ];
-
+const ResizableNavbar = ({ onScrollTo }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navItems = [
+    { name: "About Us", section: "about" },
+    { name: "Our Fleet", section: "fleet" },
+    { name: "Holiday Plans", section: "holidays" },
+  ];
 
   return (
     <div className="relative w-4/6 mx-auto z-999">
       <Navbar className="p-3">
-        {/* Desktop Navigation */}
-        <NavBody className="px-8 bg-[#111F4D]" >
+        <NavBody className="px-8 bg-[#151001]">
           <NavbarLogo />
-          <NavItems  className="text-md" items={navItems} />
+          <div className="flex gap-6 text-md text-white">
+            {navItems.map((item, idx) => (
+              <button
+                key={idx}
+                onClick={() => onScrollTo(item.section)}
+                className="hover:underline"
+              >
+                {item.name}
+              </button>
+            ))}
+          </div>
           <div className="flex items-center gap-4">
-            <NavbarButton className="bg-[#E43A19]" variant="secondary">Call Us</NavbarButton>
-            <NavbarButton variant="primary">Book Now</NavbarButton>
+            <NavbarButton className="bg-[#ffbf00]" variant="primary">
+              Book Now
+            </NavbarButton>
           </div>
         </NavBody>
 
-        {/* Mobile Navigation */}
-        <MobileNav className="absolute w-full mx-auto z-999 bg-[#111F4D] text-white">
+        <MobileNav className="absolute w-full mx-auto z-999 bg-[#151001] text-white">
           <MobileNavHeader className="px-4">
             <NavbarLogo />
             <MobileNavToggle
@@ -62,136 +59,31 @@ const ResizableNavbar = () => {
             onClose={() => setIsMobileMenuOpen(false)}
           >
             {navItems.map((item, idx) => (
-              <a
-                key={`mobile-link-${idx}`}
-                href={item.link}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-neutral-600 dark:text-neutral-300"
+              <button
+                key={idx}
+                onClick={() => {
+                  onScrollTo(item.section);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="block text-left w-full px-4 py-2 hover:bg-[#333]"
               >
-                <span className="block">{item.name}</span>
-              </a>
+                {item.name}
+              </button>
             ))}
-            <div className="flex w-full flex-col gap-4">
+            <div className="flex w-full flex-col gap-4 px-4">
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
+                className="w-full bg-[#FFBF00]"
               >
                 Login
-              </NavbarButton>
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Book a call
               </NavbarButton>
             </div>
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
-      {/* <DummyContent />   */}
-
-      {/* Navbar */}
     </div>
   );
-}   
+};
 
 export default ResizableNavbar;
-
-// const DummyContent = () => { 
-//   return (
-//     <div className="container mx-auto p-8 pt-24">
-//       <h1 className="mb-4 text-center text-3xl font-bold">
-//         Check the navbar at the top of the container
-//       </h1>
-//       <p className="mb-10 text-center text-sm text-zinc-500">
-//         For demo purpose we have kept the position as{" "}
-//         <span className="font-medium">Sticky</span>. Keep in mind that this
-//         component is <span className="font-medium">fixed</span> and will not
-//         move when scrolling.
-//       </p>
-//       <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-//         {[
-//           {
-//             id: 1,
-//             title: "The",
-//             width: "md:col-span-1",
-//             height: "h-60",
-//             bg: "bg-neutral-100 dark:bg-neutral-800",
-//           },
-//           {
-//             id: 2,
-//             title: "First",
-//             width: "md:col-span-2",
-//             height: "h-60",
-//             bg: "bg-neutral-100 dark:bg-neutral-800",
-//           },
-//           {
-//             id: 3,
-//             title: "Rule",
-//             width: "md:col-span-1",
-//             height: "h-60",
-//             bg: "bg-neutral-100 dark:bg-neutral-800",
-//           },
-//           {
-//             id: 4,
-//             title: "Of",
-//             width: "md:col-span-3",
-//             height: "h-60",
-//             bg: "bg-neutral-100 dark:bg-neutral-800",
-//           },
-//           {
-//             id: 5,
-//             title: "F",
-//             width: "md:col-span-1",
-//             height: "h-60",
-//             bg: "bg-neutral-100 dark:bg-neutral-800",
-//           },
-//           {
-//             id: 6,
-//             title: "Club",
-//             width: "md:col-span-2",
-//             height: "h-60",
-//             bg: "bg-neutral-100 dark:bg-neutral-800",
-//           },
-//           {
-//             id: 7,
-//             title: "Is",
-//             width: "md:col-span-2",
-//             height: "h-60",
-//             bg: "bg-neutral-100 dark:bg-neutral-800",
-//           },
-//           {
-//             id: 8,
-//             title: "You",
-//             width: "md:col-span-1",
-//             height: "h-60",
-//             bg: "bg-neutral-100 dark:bg-neutral-800",
-//           },
-//           {
-//             id: 9,
-//             title: "Do NOT TALK about",
-//             width: "md:col-span-2",
-//             height: "h-60",
-//             bg: "bg-neutral-100 dark:bg-neutral-800",
-//           },
-//           {
-//             id: 10,
-//             title: "F Club",
-//             width: "md:col-span-1",
-//             height: "h-60",
-//             bg: "bg-neutral-100 dark:bg-neutral-800",
-//           },
-//         ].map((box) => (
-//           <div
-//             key={box.id}
-//             className={`${box.width} ${box.height} ${box.bg} flex items-center justify-center rounded-lg p-4 shadow-sm`}
-//           >
-//             <h2 className="text-xl font-medium">{box.title}</h2>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
+  

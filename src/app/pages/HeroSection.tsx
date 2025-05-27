@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import toast, { Toaster } from "react-hot-toast";
 
-const HeroSection = () => {
+const HeroSection = ({ onScrollTo }) => {
   const [source, setSource] = useState("");
   const [destination, setDestination] = useState("");
   const [sourceSuggestions, setSourceSuggestions] = useState([]);
@@ -107,7 +107,7 @@ const HeroSection = () => {
   return (
     <div className="w-full h-screen px-4 flex flex-col items-center">
       <Toaster />
-      <ResizableNavbar />
+      <ResizableNavbar onScrollTo={onScrollTo}/>
       <div className="absolute">
         <TypewriterEffectDemo />
       </div>
@@ -121,7 +121,7 @@ const HeroSection = () => {
         <source src="/assets/heroVideo.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div className="mx-auto absolute bottom-[-15vh] md:bottom-0 left-0 right-0 bg-white w-5/6 md:w-3/4 min-h-[115px] flex flex-col md:flex-row justify-center items-center rounded-2xl shadow-[#D9D9D9] p-4 gap-4 md:gap-0">
+      <div className="mx-auto absolute bottom-[-15vh] md:bottom-0 left-0 right-0 bg-white border-1 border-gray-300 w-5/6 md:w-3/4 min-h-[115px] flex flex-col md:flex-row justify-center items-center rounded-2xl shadow-[#D9D9D9] p-4 gap-4 md:gap-0">
         <div className="px-4 w-full md:w-1/4">
           <p className="text-gray-900 font-bold text-sm">From</p>
           <input
@@ -129,7 +129,7 @@ const HeroSection = () => {
             value={source}
             type="text"
             placeholder="Pickup Point"
-            className="text-2xl outline-none py-2 capitalize w-full overflow-hidden text-ellipsis whitespace-nowrap"
+            className="text-xl md:text-2xl md:border-r-1 md:border-gray-400 outline-none py-2 capitalize w-full overflow-hidden text-ellipsis whitespace-nowrap"
           />
           <ul className="bg-white absolute z-10 w-full">
             {sourceSuggestions.map((item, index) => (
@@ -154,7 +154,7 @@ const HeroSection = () => {
             value={destination}
             type="text"
             placeholder="Drop Point"
-            className="text-2xl outline-none py-2 capitalize w-full overflow-hidden text-ellipsis whitespace-nowrap"
+            className="text-xl md:text-2xl md:border-r-1 md:border-gray-400 outline-none py-2 capitalize w-full overflow-hidden text-ellipsis whitespace-nowrap"
           />
           <ul className="bg-white absolute z-10 w-full">
             {destinationSuggestions.map((item, index) => (
@@ -177,14 +177,14 @@ const HeroSection = () => {
           <input
             type="text"
             placeholder="18 May 2025, 1:00 PM"
-            className="text-2xl outline-none py-2 capitalize w-full"
+            className="text-xl md:text-2xl outline-none py-2 capitalize w-full"
           />
         </div>
 
         <div className="w-full md:w-1/4 flex justify-center">
           <button
             onClick={handleSearch}
-            className="rounded-[300px] bg-[#E43A19] w-full md:w-1/3 p-3 text-white cursor-pointer"
+            className="rounded-[300px] bg-[#FFBF00] w-full md:w-1/3 p-3 text-white cursor-pointer"
           >
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>

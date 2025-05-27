@@ -22,18 +22,18 @@ export function TypewriterEffectDemo() {
       text: "with",
     },
     {
-      text: "GOCCAR.",
-      className: "text-[#111F4D] dark:text-[#ffffff] bg-black md:bg-[#E43A19]",
+      text: "GoCAR.",
+      className: "text-[#111F4D] dark:text-[#ffffff] bg-[#FFBF00] md:bg-[#FFBF00]",
     },
   ];
   return (
     <div className="flex flex-col items-center justify-center w-[90vw] md:w-[75vw] h-[40rem]">
       <TypewriterEffect words={words} />
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4 mt-12 md:mt-10">
-        <button className="w-70 md:w-40 h-10 rounded-xl bg-[#111F4D] border border-transparent text-white text-sm">
+        <button className="w-70 md:w-40 h-10 rounded-xl bg-[#151001] cursor-pointer border border-transparent text-white text-sm">
             Call Us
         </button>
-        <button className="w-70 md:w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm">
+        <button className="w-70 md:w-40 h-10 rounded-xl bg-[#D9D9D9] cursor-pointer text-black border border-black text-sm">
           Book a Cab
         </button>
       </div>

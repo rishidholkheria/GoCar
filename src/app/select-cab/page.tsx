@@ -70,7 +70,7 @@ const SelectCab = () => {
     <div className="flex flex-col md:flex-row h-screen overflow-hidden">
       {/* Sidebar */}
       <div className="order-2 md:order-1 w-full md:w-1/3 h-[60vh] md:h-full overflow-y-scroll scrollbar-hide">
-        <div className="fixed md:static w-full h-[70px] flex justify-start items-center bg-blue-950 p-8 md:p-3 text-white z-10">
+        <div className="fixed md:static w-full h-[70px] flex justify-start items-center bg-[#151001] p-8 md:p-3 text-white z-10">
           <img src="/favicon.ico" alt="" className="w-[50px] h-[50px]" />
           <p className="pl-3">GOCCAR</p>
           <button className="bg-white ml-[40px] px-4 py-1 text-blue-950 rounded-3xl">
@@ -79,7 +79,7 @@ const SelectCab = () => {
         </div>
 
         {/* From - To Info */}
-        <div className="mt-[90px] md:mt-[10px] mx-4 bg-gray-200 rounded-2xl px-5 py-3 flex justify-center items-center">
+        <div className="mt-[90px] md:mt-[10px] mx-4 bg-[#fdf0d8] border-2 border-[#ffdb97] rounded-2xl px-5 py-3 flex justify-center items-center">
           <div className="w-4/5">
             <h2 className="font-bold text-xl py-2">
               <span className="font-bold text-gray-500 text-[16px] mr-1">
@@ -95,28 +95,22 @@ const SelectCab = () => {
             </h2>
           </div>
           <div className="w-1/5 flex items-center">
-            <button className="bg-black px-4 py-2 rounded-md mx-auto text-white cursor-pointer">
+            <button className="bg-[#151001] px-4 py-2 rounded-md mx-auto text-white cursor-pointer">
               Edit
             </button>
           </div>
         </div>
         <div className="px-4 py-6">
-          <div className="flex gap-2 flex-wrap">
-            <div className="flex items-center bg-amber-600 p-1 rounded-lg">
+
+          <div className="py-1 px-2">
+            {/* <div className="flex items-center bg-amber-600 p-1 rounded-lg">
               <FontAwesomeIcon icon={faRoad} />
               <p className="pl-1 text-white text-md font-bold">1992.8 Km</p>
-            </div>
-            <div className="flex items-center bg-amber-600">
-              <FontAwesomeIcon icon={faCarSide} />
-              <p className="pl-1 text-gray-700 text-md font-bold">
-                14H
-              </p>
-            </div>
-            <div className="flex items-center">
-              <FontAwesomeIcon icon={faRoad} />
-              <p className="pl-1 text-gray-700 text-md font-bold">1992.8 Km</p>
-            </div>
+            </div> */}
+            <h2 className=" text-[#15100197] text-xl font-bold">18 June, 2025 - 7:30 am</h2>
+            <h2 className=" text-[#15100197] text-xl font-bold">201 KM journey</h2>
           </div>
+          
           <h2 className="text-xl font-semibold text-gray-700 py-2">
             Select from our Fleet
           </h2>
@@ -152,7 +146,7 @@ const SelectCab = () => {
           {mapRoute.length > 0 && (
             <Polyline
               positions={mapRoute}
-              pathOptions={{ color: "#E43A19", weight: 6, opacity: 1 }}
+              pathOptions={{ color: "#FFBF00", weight: 6, opacity: 1 }}
             />
           )}
         </MapContainer>
