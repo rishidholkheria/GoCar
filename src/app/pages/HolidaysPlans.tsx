@@ -4,7 +4,7 @@ import SplitText from "../../components/ui/SplitText.js";
 
 const HolidaysPlans = () => {
   return (
-    <div className="w-full h-[20vh] md:h-[60vh] md:px-5">
+    <div className="w-full min-h-[60vh] px-4 md:px-5 py-10">
       <SplitText
         text="Popular Budget Travels"
         className="text-4xl mt-15 md:mt-10 font-bold text-center md:text-start"

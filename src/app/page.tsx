@@ -6,6 +6,7 @@ import Advantages from "./pages/Advantages";
 import HeroSection from "./pages/HeroSection";
 import HolidaysPlans from "./pages/HolidaysPlans";
 import OurFleet from "./pages/OurFleet";
+import ContactUs from "./pages/ContactUs";
 
 export default function Home() {
   const aboutRef = useRef(null);
@@ -33,7 +34,7 @@ export default function Home() {
       <div ref={holidaysRef}>
         <HolidaysPlans />
       </div>
-      <Advantages />
+      <ContactUs />
     </div>
   );
 }
