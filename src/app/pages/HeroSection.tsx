@@ -13,6 +13,7 @@ import toast, { Toaster } from "react-hot-toast";
 const HeroSection = ({ onScrollTo }) => {
   const [source, setSource] = useState("");
   const [destination, setDestination] = useState("");
+  const [dateTime, setDateTime] = useState("");
   const [sourceSuggestions, setSourceSuggestions] = useState([]);
   const [destinationSuggestions, setDestinationSuggestions] = useState([]);
 

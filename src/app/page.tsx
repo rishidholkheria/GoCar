@@ -23,6 +23,8 @@ export default function Home() {
             fleetRef.current?.scrollIntoView({ behavior: "smooth" });
           if (section === "holidays")
             holidaysRef.current?.scrollIntoView({ behavior: "smooth" });
+          if (section === "contact")
+            contactRef.current?.scrollIntoView({ behavior: "smooth" });
         }}
       />
       <div ref={aboutRef}>
@@ -34,7 +36,9 @@ export default function Home() {
       <div ref={holidaysRef}>
         <HolidaysPlans />
       </div>
-      <ContactUs />
+      <div ref={contactRef}>
+        <ContactUs />
+      </div>
     </div>
   );
 }

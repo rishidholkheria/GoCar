@@ -20,6 +20,7 @@ const ResizableNavbar = ({ onScrollTo }) => {
     { name: "About Us", section: "about" },
     { name: "Our Fleet", section: "fleet" },
     { name: "Holiday Plans", section: "holidays" },
+    { name: "Contact Us", section: "contact" },
   ];
 
   return (

@@ -44,20 +44,34 @@ ${name}`;
             className="text-4xl mt-10 font-bold text-center md:text-start"
           />
           <CardHoverEffectDemo />
-          <h2 className="text-lg px-1 py-2 font-bold mt-8">Reach out here!</h2>
+          <h2 className="text-lg px-1 py-2 font-bold mt-8 mb-2">Reach out here!</h2>
           <div className="flex flex-col md:flex-row gap-5 mt-4 md:absolute md:bottom-7 md:w-full">
-            <div className="flex gap-2 justify-start items-center cursor-pointer">
-              <FontAwesomeIcon icon={faPhone} />
-              <p>+91 708707969</p>
-            </div>
-            <div className="flex gap-2 justify-start items-center cursor-pointer">
-              <FontAwesomeIcon icon={faPhone} />
-              <p>+91 9759961199</p>
-            </div>
-            <div className="flex gap-2 justify-start items-center cursor-pointer">
-              <FontAwesomeIcon icon={faEnvelope} />
-              <p>goCar@gmail.com</p>
-            </div>
+            {[
+              {
+                icon: faPhone,
+                text: "+91 708707969",
+                href: "tel:+91708707969",
+              },
+              {
+                icon: faPhone,
+                text: "+91 9759961199",
+                href: "tel:+919759961199",
+              },
+              {
+                icon: faEnvelope,
+                text: "goCar@gmail.com",
+                href: "mailto:goCar@gmail.com",
+              },
+            ].map(({ icon, text, href }, idx) => (
+              <a
+                key={idx}
+                href={href}
+                className="flex items-center gap-3 px-6 py-3 rounded-3xl bg-white text-gray-800 shadow-md transition-all duration-300 ease-in-out transform hover:bg-orange-500 hover:text-white hover:scale-105"
+              >
+                <FontAwesomeIcon icon={icon} className="text-lg" />
+                <p className="font-medium">{text}</p>
+              </a>
+            ))}
           </div>
         </div>
 
