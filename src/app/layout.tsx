@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Outfit } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import "./globals.css";
 import "../lib/fontawesome";
 
-const outfit = Outfit({
+const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['400', '700'], 
 })
 
 export const metadata: Metadata = {
-  title: "GoCar",
+  title: "GOCCAR",
   description: "Your budget friendly travel partner.",
 };
 
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={outfit.className}>
+    <html lang="en" className={montserrat.className}>
       <body
         className={`antialiased`}
         cz-shortcut-listen="true"

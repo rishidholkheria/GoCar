@@ -28,7 +28,7 @@ const TaxiCarousel = () => {
                         className="w-full object-cover min-h-[180px] max-h-[220px] md:max-h-[250px] rounded-t-2xl"
                       />
 
-                      <button className="absolute bottom-[130px] right-4 m-2 rounded-full p-3 bg-[#FFBF00] z-10">
+                      <button className="absolute bottom-10 right-4 m-2 rounded-full p-3 bg-[#FFBF00] z-10">
                         FAB
                       </button>
 

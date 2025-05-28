@@ -73,9 +73,11 @@ const SelectCab = () => {
         <div className="fixed md:static w-full h-[70px] flex justify-start items-center bg-[#151001] p-8 md:p-3 text-white z-10">
           <img src="/favicon.ico" alt="" className="w-[50px] h-[50px]" />
           <p className="pl-3">GOCCAR</p>
-          <button className="bg-white ml-[40px] px-4 py-1 text-blue-950 rounded-3xl">
-            Call Us
-          </button>
+          <a href="tel:+7087079696">
+            <button className="bg-white ml-[40px] px-4 py-1 text-blue-950 rounded-3xl cursor-pointer">
+              Call Us
+            </button>
+          </a>
         </div>
 
         {/* From - To Info */}
@@ -101,16 +103,19 @@ const SelectCab = () => {
           </div>
         </div>
         <div className="px-4 py-6">
-
           <div className="py-1 px-2">
             {/* <div className="flex items-center bg-amber-600 p-1 rounded-lg">
               <FontAwesomeIcon icon={faRoad} />
               <p className="pl-1 text-white text-md font-bold">1992.8 Km</p>
             </div> */}
-            <h2 className=" text-[#15100197] text-xl font-bold">18 June, 2025 - 7:30 am</h2>
-            <h2 className=" text-[#15100197] text-xl font-bold">201 KM journey</h2>
+            <h2 className=" text-[#15100197] text-xl font-bold">
+              18 June, 2025 - 7:30 am
+            </h2>
+            <h2 className=" text-[#15100197] text-xl font-bold">
+              201 KM journey
+            </h2>
           </div>
-          
+
           <h2 className="text-xl font-semibold text-gray-700 py-2">
             Select from our Fleet
           </h2>

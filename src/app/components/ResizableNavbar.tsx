@@ -32,7 +32,7 @@ const ResizableNavbar = ({ onScrollTo }) => {
               <button
                 key={idx}
                 onClick={() => onScrollTo(item.section)}
-                className="hover:underline"
+                className="transition-all duration-300 ease-in-out px-3 py-1 rounded-2xl cursor-pointer hover:bg-[#313131ed] hover:scale-105"
               >
                 {item.name}
               </button>
@@ -40,7 +40,7 @@ const ResizableNavbar = ({ onScrollTo }) => {
           </div>
           <div className="flex items-center gap-4">
             <NavbarButton className="bg-[#ffbf00]" variant="primary">
-              Book Now
+              Login
             </NavbarButton>
           </div>
         </NavBody>

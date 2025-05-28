@@ -22,7 +22,7 @@ export function TypewriterEffectDemo() {
       text: "with",
     },
     {
-      text: "GoCAR.",
+      text: "GOCCAR.",
       className: "text-[#111F4D] dark:text-[#ffffff] bg-[#FFBF00] md:bg-[#FFBF00]",
     },
   ];

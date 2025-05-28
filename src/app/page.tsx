@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import AboutUs from "./pages/AboutUs";
-import Advantages from "./pages/Advantages";
 import HeroSection from "./pages/HeroSection";
 import HolidaysPlans from "./pages/HolidaysPlans";
 import OurFleet from "./pages/OurFleet";
@@ -12,9 +11,10 @@ export default function Home() {
   const aboutRef = useRef(null);
   const fleetRef = useRef(null);
   const holidaysRef = useRef(null);
+  const contactRef = useRef(null);
 
   return (
-    <div className="min-h-screen w-[100vw] box-border">
+    <div className="min-h-screen w-full overflow-x-hidden box-border">
       <HeroSection
         onScrollTo={(section) => {
           if (section === "about")

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import ResizableNavbar from "../components/ResizableNavbar";
 import { TypewriterEffectDemo } from "../components/TypewriterEffect";
 import { useRouter } from "next/navigation";
@@ -20,6 +20,11 @@ const HeroSection = ({ onScrollTo }) => {
   const setLocations = CabStore((state) => state.setLocations);
 
   const router = useRouter();
+
+  const inputRef = useRef(null);
+  const handleClick = () => {
+    inputRef.current?.showPicker?.();
+  };
 
   const getGeoCodes = async (place: String) => {
     try {
@@ -65,11 +70,11 @@ const HeroSection = ({ onScrollTo }) => {
   };
 
   const debouncedFetchSource = useCallback(
-    debounce((query: any) => fetchSuggestions(query, "source"), 300),
+    debounce((query: any) => fetchSuggestions(query, "source"), 200),
     []
   );
   const debouncedFetchDestination = useCallback(
-    debounce((query: any) => fetchSuggestions(query, "destination"), 300),
+    debounce((query: any) => fetchSuggestions(query, "destination"), 200),
     []
   );
 
@@ -105,9 +110,9 @@ const HeroSection = ({ onScrollTo }) => {
   };
 
   return (
-    <div className="w-full h-screen px-4 flex flex-col items-center">
+    <div className="w-full h-screen px-4 flex flex-col items-center overflow-x-hidden">
       <Toaster />
-      <ResizableNavbar onScrollTo={onScrollTo}/>
+      <ResizableNavbar onScrollTo={onScrollTo} />
       <div className="absolute">
         <TypewriterEffectDemo />
       </div>
@@ -131,7 +136,7 @@ const HeroSection = ({ onScrollTo }) => {
             placeholder="Pickup Point"
             className="text-xl md:text-2xl md:border-r-1 md:border-gray-400 outline-none py-2 capitalize w-full overflow-hidden text-ellipsis whitespace-nowrap"
           />
-          <ul className="bg-white absolute z-10 w-full">
+          <ul className="bg-[#D9D9D9] absolute z-10 w-full">
             {sourceSuggestions.map((item, index) => (
               <li
                 key={index}
@@ -156,7 +161,7 @@ const HeroSection = ({ onScrollTo }) => {
             placeholder="Drop Point"
             className="text-xl md:text-2xl md:border-r-1 md:border-gray-400 outline-none py-2 capitalize w-full overflow-hidden text-ellipsis whitespace-nowrap"
           />
-          <ul className="bg-white absolute z-10 w-full">
+          <ul className="bg-[#D9D9D9] absolute z-10 w-full">
             {destinationSuggestions.map((item, index) => (
               <li
                 key={index}
@@ -173,11 +178,14 @@ const HeroSection = ({ onScrollTo }) => {
         </div>
 
         <div className="px-4 w-full md:w-1/4">
-          <p className="text-gray-900 font-bold text-sm">Pick-Up Date & Time</p>
+          <p className="text-gray-900 font-bold text-sm mb-1">
+            Pick-Up Date & Time
+          </p>
           <input
-            type="text"
-            placeholder="18 May 2025, 1:00 PM"
-            className="text-xl md:text-2xl outline-none py-2 capitalize w-full"
+            ref={inputRef}
+            type="datetime-local"
+            onClick={handleClick}
+            className="text-base md:text-lg cursor-pointer outline-none py-2 px-3 w-full text-gray-700 bg-white border border-gray-300 rounded-md overflow-hidden truncate"
           />
         </div>
 
