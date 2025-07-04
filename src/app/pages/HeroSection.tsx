@@ -122,11 +122,12 @@ const HeroSection = ({ onScrollTo }) => {
         muted
         loop
         playsInline
-        className="absolute top-10 mx-2 text-black backdrop-opacity-75 w-[98vw] h-[90vh] rounded-b-2xl object-cover z-[-1]"
+        className="absolute top-10 mx-2 text-black backdrop-opacity-75 w-[98vw] h-[90vh] rounded-b-2xl object-cover z-[-2]"
       >
         <source src="/assets/heroVideo.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <div className="absolute top-10 mx-2 w-[98vw] h-[90vh] rounded-b-2xl bg-black opacity-50 z-[-1]" />
       <div className="mx-auto absolute bottom-[-15vh] md:bottom-0 left-0 right-0 bg-white border-1 border-gray-300 w-5/6 md:w-3/4 min-h-[115px] flex flex-col md:flex-row justify-center items-center rounded-2xl shadow-[#D9D9D9] p-4 gap-4 md:gap-0">
         <div className="px-4 w-full md:w-1/4">
           <p className="text-gray-900 font-bold text-sm">From</p>
