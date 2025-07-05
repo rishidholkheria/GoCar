@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, stagger, useAnimate, useInView } from "motion/react";
+import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 
 const LOCATION_WORDS = [
@@ -38,12 +38,12 @@ export const TypewriterEffect = ({
       } else {
         timeout = setTimeout(() => {
           setTypingPhase("pausing");
-        }, 2000); // Show full text for 2s
+        }, 2000);
       }
     } else if (typingPhase === "pausing") {
       timeout = setTimeout(() => {
         setTypingPhase("deleting");
-      }, 1000); // Pause before deleting
+      }, 1000);
     } else if (typingPhase === "deleting") {
       if (displayedChars.length > 0) {
         timeout = setTimeout(() => {
@@ -58,42 +58,51 @@ export const TypewriterEffect = ({
     }
 
     return () => clearTimeout(timeout);
-  }, [displayedChars, typingPhase, currentWordIndex]);
+  }, [displayedChars, typingPhase, currentWordIndex, onWordChange]);
 
   return (
-    <div
-      className={cn(
-        "font-bold text-center flex items-center justify-center",
-        className
-      )}
-    >
-      <div
-        className="inline-block max-w-[90vw] sm:max-w-[80vw] md:max-w-[70vw] lg:max-w-[60vw] text-wrap text-balance"
-        style={{ wordBreak: "break-word" }}
-      >
-        {displayedChars.map((char, index) => (
-          <motion.span
-            key={index}
-            initial={{ opacity: 0, y: -5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.1 }}
-            className={cn(
-              "text-[#FFBF00] md:text-white text-2xl sm:text-3xl md:text-5xl whitespace-pre-wrap break-words",
-              LOCATION_WORDS[currentWordIndex].className
-            )}
-          >
-            {char}
-          </motion.span>
-        ))}
+    <div className={cn("w-full flex justify-center px-4", className)}>
+      <div className="text-center max-w-[90vw] sm:max-w-[80vw] md:max-w-[70vw]">
+        <h1 className="text-white font-semibold text-[clamp(1.25rem,4vw,2.5rem)] leading-tight drop-shadow-xl">
+          Own your choice.
+          <br className="sm:hidden" />
+          <span className="hidden sm:inline"> </span>
+          Start your journey to
+        </h1>
+
+        <div className="mt-2">
+          <span className="font-bold text-[clamp(1.75rem,6vw,3.5rem)] drop-shadow-[0_1px_5px_rgba(255,191,0,0.8)]">
+            {displayedChars.map((char, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.1 }}
+                className={cn(LOCATION_WORDS[currentWordIndex].className)}
+              >
+                {char}
+              </motion.span>
+            ))}
+            <motion.span
+              animate={{ opacity: [0, 1, 0] }}
+              transition={{ duration: 1, repeat: Infinity }}
+              className={cn(
+                "inline-block w-[3px] h-[1.3em] bg-white ml-1 align-middle",
+                cursorClassName
+              )}
+            />
+          </span>
+        </div>
+
+        <p className="mt-4 text-white text-[clamp(1.25rem,4vw,2rem)] font-medium drop-shadow-lg">
+          with{" "}
+          <span className="bg-[#FFBF00] text-black px-3 py-1 rounded font-semibold">
+            GOCCAR
+          </span>
+          .
+        </p>
       </div>
-      <motion.span
-        animate={{ opacity: [0, 1, 0] }}
-        transition={{ duration: 1, repeat: Infinity }}
-        className={cn(
-          "inline-block rounded-sm w-[4px] h-4 sm:h-6 md:h-10 bg-blue-500 ml-1",
-          cursorClassName
-        )}
-      />
     </div>
   );
 };
+  

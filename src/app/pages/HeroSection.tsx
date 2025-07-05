@@ -16,6 +16,16 @@ const HeroSection = ({ onScrollTo }) => {
   const [dateTime, setDateTime] = useState("");
   const [sourceSuggestions, setSourceSuggestions] = useState([]);
   const [destinationSuggestions, setDestinationSuggestions] = useState([]);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+  // Video configuration array
+  const videos = [
+    { name: "Punjab", src: "/assets/Hero1.mp4" },
+    { name: "Kashmir", src: "/assets/Hero2.mp4" },
+    { name: "Himachal Pradesh", src: "/assets/Hero3.mp4" },
+    { name: "Rajasthan", src: "/assets/Hero4.mp4" },
+    { name: "Uttarakhand", src: "/assets/Hero2.mp4" }
+  ];
 
   const changeState = CabStore((state) => state.changeState);
   const setLocations = CabStore((state) => state.setLocations);
@@ -99,8 +109,6 @@ const HeroSection = ({ onScrollTo }) => {
       try {
         const geoCode1 = await getGeoCodes(source);
         const geoCode2 = await getGeoCodes(destination);
-        // console.log("G1 --- ", geoCode1);
-        // console.log("G2 ---", geoCode2);
         setLocations({ source, destination });
         changeState({ sourceGeocode: geoCode1, destinationGeocode: geoCode2 });
         router.push("/select-cab");
@@ -115,20 +123,30 @@ const HeroSection = ({ onScrollTo }) => {
       <Toaster />
       <ResizableNavbar onScrollTo={onScrollTo} />
       <div className="absolute">
-        <TypewriterEffectDemo />
+        <TypewriterEffectDemo onVideoChange={setCurrentVideoIndex} />
       </div>
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute top-10 mx-2 text-black backdrop-opacity-75 w-[98vw] h-[90vh] rounded-b-2xl object-cover z-[-2]"
-      >
-        <source src="/assets/heroVideo.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      
+      {/* Replace single video with multiple synced videos */}
+      <div className="absolute top-10 mx-2 w-[98vw] h-[90vh] rounded-b-2xl overflow-hidden z-[-2]">
+        {videos.map((video, index) => (
+          <video
+            key={video.name}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ${
+              currentVideoIndex === index ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <source src={video.src} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        ))}
+      </div>
+      
       <div className="absolute top-10 mx-2 w-[98vw] h-[90vh] rounded-b-2xl bg-black opacity-50 z-[-1]" />
-      <div className="mx-auto absolute bottom-[-15vh] md:bottom-0 left-0 right-0 bg-white border-1 border-gray-300 w-5/6 md:w-3/4 min-h-[115px] flex flex-col md:flex-row justify-center items-center rounded-2xl shadow-[#D9D9D9] p-4 gap-4 md:gap-0">
+      <div className="mx-auto absolute bottom-[-25vh] md:bottom-0 left-0 right-0 bg-white border-1 border-gray-300 w-5/6 md:w-3/4 min-h-[115px] flex flex-col md:flex-row justify-center items-center rounded-2xl shadow-[#D9D9D9] p-4 gap-4 md:gap-0">
         <div className="px-4 w-full md:w-1/4">
           <p className="text-gray-900 font-bold text-sm">From</p>
           <input
@@ -205,3 +223,5 @@ const HeroSection = ({ onScrollTo }) => {
 };
 
 export default HeroSection;
+
+// Test

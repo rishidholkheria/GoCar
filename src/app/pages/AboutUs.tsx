@@ -8,10 +8,11 @@ const AboutUs = () => {
     <div className="px-1 md:px-6 pt-10 w-full ">
       <SplitText
         text="Goccar — Driven by Trust, Since 2019"
-        className="w-full border-2 border-red-400 text-4xl mt-15 md:mt-10 font-bold text-center md:text-start"
+        className="w-full text-3xl sm:text-4xl mt-[28vh] md:mt-[15vh] lg:mt-[8vh] font-bold text-center md:text-start"
       />
-      <div className="mt-3">
-        <p className="text-gray-700 text-md">
+
+      <div className="w-full md:w-2/3 px-4 md:px-0 py-6 md:py-10">
+        <p className="text-gray-900 text-base sm:text-lg md:text-xl text-center md:text-start">
           Experience the difference with Goccar — your reliable ride partner
           since 2019. We blend modern convenience with consistent service to
           deliver comfort, safety, and satisfaction on every journey.
@@ -25,15 +26,28 @@ const AboutUs = () => {
       <div className="flex flex-col md:flex-row w-full justify-center text-center md:text-start mt-2">
         <div className="w-full md:w-1/2 pt-10">
           <AnimatedBlock delay={0.1}>
-            <h2 className="text-gray-950 text-lg">Smart, Safe & On-Time</h2>
+            <h2 className="text-gray-950 text-lg font-semibold">
+              Smart, Safe & On-Time
+            </h2>
             <p className="text-gray-700 text-md">
               We prioritize punctuality with real-time tracking and verified
               drivers for a worry-free experience.
             </p>
           </AnimatedBlock>
 
+          <AnimatedBlock delay={0.3}>
+            <h2 className="text-gray-950 text-lg font-semibold">
+              Trusted Safety for Women Travelers
+            </h2>
+            <p className="text-gray-700 text-md">
+              With background-verified drivers, polite conduct, and dedicated
+              support, we ensure every woman feels secure and respected on every
+              ride.
+            </p>
+          </AnimatedBlock>
+
           <AnimatedBlock delay={0.2}>
-            <h2 className="text-gray-950 text-lg">
+            <h2 className="text-gray-950 text-lg font-semibold">
               Comfort That Moves With You
             </h2>
             <p className="text-gray-700 text-md">
@@ -43,7 +57,9 @@ const AboutUs = () => {
           </AnimatedBlock>
 
           <AnimatedBlock delay={0.3}>
-            <h2 className="text-gray-950 text-lg">Ride Easy, Book Easier</h2>
+            <h2 className="text-gray-950 text-lg font-semibold">
+              Ride Easy, Book Easier
+            </h2>
             <p className="text-gray-700 text-md">
               Seamless booking, book the ride of your choice, instant
               Confirmations, contact us for more information.

@@ -36,31 +36,48 @@ ${name}`;
 
   return (
     <div className="relative w-full h-auto px-4">
+      <SplitText
+        text="Customer Says :)"
+        className="text-4xl mt-10 font-bold text-center md:text-start"
+      />
+      <CardHoverEffectDemo />
       <div className="w-full py-10 flex flex-col md:flex-row h-full">
         {/* Left Side */}
         <div className="w-full md:w-3/5 justify-start px-4 py-7">
           <SplitText
-            text="Customer Says :)"
+            text="Reach out to us!"
             className="text-4xl mt-10 font-bold text-center md:text-start"
           />
-          <CardHoverEffectDemo />
-          <h2 className="text-lg px-1 py-2 font-bold mt-8 mb-2">Reach out here!</h2>
+
+          <div className="flex justify-center mt-6">
+            <img
+              src="/assets/logoGIF.gif"
+              alt="Contact Us Animation"
+              className="w-64 h-auto"
+            />
+          </div>
+
+          <p className="text-center text-2xl font-semibold text-gray-900 mt-4">
+            Own your choice –{" "}
+            <span className="text-primary font-bold text-amber-500">GOCCAR!</span>
+          </p>
+
           <div className="flex flex-col md:flex-row gap-5 mt-4 md:absolute md:bottom-7 md:w-full">
             {[
               {
                 icon: faPhone,
-                text: "+91 708707969",
-                href: "tel:+91708707969",
+                text: "+91-8800049696",
+                href: "tel:+918800049696",
               },
               {
                 icon: faPhone,
-                text: "+91 9759961199",
+                text: "+91-9759961199",
                 href: "tel:+919759961199",
               },
               {
                 icon: faEnvelope,
-                text: "goCar@gmail.com",
-                href: "mailto:goCar@gmail.com",
+                text: "goccarservice@goccar.in",
+                href: "mailto:goccarservice@goccar.in",
               },
             ].map(({ icon, text, href }, idx) => (
               <a

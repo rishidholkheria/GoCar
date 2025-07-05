@@ -1,89 +1,84 @@
-// ResizableNavbar.jsx
 "use client";
-import {
-  Navbar,
-  NavBody,
-  NavItems,
-  MobileNav,
-  NavbarLogo,
-  NavbarButton,
-  MobileNavHeader,
-  MobileNavToggle,
-  MobileNavMenu,
-} from "@/components/ui/resizable-navbar";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
-const ResizableNavbar = ({ onScrollTo }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+const Navbar = ({ onScrollTo }: { onScrollTo: (section: string) => void }) => {
   const navItems = [
     { name: "About Us", section: "about" },
-    { name: "Our Fleet", section: "fleet" },
+    { name: "Find your Ride", section: "fleet" },
     { name: "Travel Deals", section: "holidays" },
   ];
 
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="relative w-4/6 mx-auto z-999">
-      <Navbar className="p-3">
-        <NavBody className="px-8 bg-[#151001]">
-          <NavbarLogo />
-          <div className="flex gap-6 text-md text-white">
-            {navItems.map((item, idx) => (
-              <button
-                key={idx}
-                onClick={() => onScrollTo(item.section)}
-                className="transition-all duration-300 ease-in-out px-3 py-1 rounded-2xl cursor-pointer hover:bg-[#313131ed] hover:scale-105"
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
-          <div className="flex items-center gap-4">
-            <NavbarButton className="bg-[#ffbf00]" variant="primary">
-              Contact Us
-            </NavbarButton>
-          </div>
-        </NavBody>
+    <nav
+      className={cn(
+        "fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-md shadow-md border-b border-white/10"
+      )}
+    >
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
+        {/* Logo */}
+        <div className="text-white font-bold text-xl tracking-wider">
+          GOCCAR
+        </div>
 
-        <MobileNav className="absolute w-full mx-auto z-999 bg-[#151001] text-white">
-          <MobileNavHeader className="px-4">
-            <NavbarLogo />
-            <MobileNavToggle
-              isOpen={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            />
-          </MobileNavHeader>
+        {/* Desktop Nav */}
+        <div className="hidden md:flex gap-6 text-white text-sm font-medium">
+          {navItems.map((item, idx) => (
+            <button
+              key={idx}
+              onClick={() => onScrollTo(item.section)}
+              className="transition px-4 py-2 rounded-xl hover:bg-white/10 hover:backdrop-blur-sm"
+            >
+              {item.name}
+            </button>
+          ))}
+        </div>
 
-          <MobileNavMenu
-            isOpen={isMobileMenuOpen}
-            onClose={() => setIsMobileMenuOpen(false)}
+        {/* Contact Us Button */}
+        <div className="hidden md:block">
+          <button className="bg-[#FFBF00] text-black px-5 py-2 rounded-full font-semibold hover:scale-105 transition">
+            Contact Us
+          </button>
+        </div>
+
+        {/* Mobile Toggle */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-white focus:outline-none"
           >
-            {navItems.map((item, idx) => (
-              <button
-                key={idx}
-                onClick={() => {
-                  onScrollTo(item.section);
-                  setIsMobileMenuOpen(false);
-                }}
-                className="block text-left w-full px-4 py-2 hover:bg-[#333]"
-              >
-                {item.name}
-              </button>
-            ))}
-            <div className="flex w-full flex-col gap-4 px-4">
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full bg-[#FFBF00]"
-              >
-                Login
-              </NavbarButton>
-            </div>
-          </MobileNavMenu>
-        </MobileNav>
-      </Navbar>
-    </div>
+            ☰
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Nav Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-black/80 backdrop-blur-sm py-4 px-6 flex flex-col gap-3 text-white text-sm">
+          {navItems.map((item, idx) => (
+            <button
+              key={idx}
+              onClick={() => {
+                onScrollTo(item.section);
+                setIsOpen(false);
+              }}
+              className="text-left w-full py-2 hover:bg-white/10 rounded-md"
+            >
+              {item.name}
+            </button>
+          ))}
+          <button
+            onClick={() => setIsOpen(false)}
+            className="bg-[#FFBF00] text-black mt-2 px-4 py-2 rounded-full font-semibold"
+          >
+            Contact Us
+          </button>
+        </div>
+      )}
+    </nav>
   );
 };
 
-export default ResizableNavbar;
-  
+export default Navbar;
