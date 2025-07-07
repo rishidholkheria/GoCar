@@ -39,6 +39,7 @@ const EmblaCarousel = () => {
             <CarouselItem key={idx} className="min-w-full h-full">
               <video
                 autoPlay
+                muted
                 controls
                 playsInline
                 onEnded={handleVideoEnd}

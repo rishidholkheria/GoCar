@@ -7,6 +7,7 @@ const Navbar = ({ onScrollTo }: { onScrollTo: (section: string) => void }) => {
     { name: "About Us", section: "about" },
     { name: "Find your Ride", section: "fleet" },
     { name: "Travel Deals", section: "holidays" },
+    { name: "Contact Us", section: "contact" },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +18,10 @@ const Navbar = ({ onScrollTo }: { onScrollTo: (section: string) => void }) => {
         "fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-md shadow-md border-b border-white/10"
       )}
     >
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2">
         {/* Logo */}
-        <div className="text-white font-bold text-xl tracking-wider">
-          GOCCAR
+        <div className="text-white font-bold text-xl tracking-wider h-full">
+          <img src="/assets/gocar-logo.png" alt="GOCCAR" className="h-10"/>
         </div>
 
         {/* Desktop Nav */}
@@ -38,7 +39,10 @@ const Navbar = ({ onScrollTo }: { onScrollTo: (section: string) => void }) => {
 
         {/* Contact Us Button */}
         <div className="hidden md:block">
-          <button className="bg-[#FFBF00] text-black px-5 py-2 rounded-full font-semibold hover:scale-105 transition">
+          <button
+            onClick={() => onScrollTo("contact")}
+            className="bg-[#FFBF00] text-black px-5 py-2 rounded-full font-semibold hover:scale-105 transition"
+          >
             Contact Us
           </button>
         </div>

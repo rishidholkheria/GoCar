@@ -12,10 +12,13 @@ export default function Home() {
   const fleetRef = useRef(null);
   const holidaysRef = useRef(null);
   const contactRef = useRef(null);
+  const contactFormRef = useRef(null);
+  const searchRef = useRef(null);
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden box-border">
       <HeroSection
+        searchRef={searchRef}
         onScrollTo={(section) => {
           if (section === "about")
             aboutRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -24,7 +27,7 @@ export default function Home() {
           if (section === "holidays")
             holidaysRef.current?.scrollIntoView({ behavior: "smooth" });
           if (section === "contact")
-            contactRef.current?.scrollIntoView({ behavior: "smooth" });
+            contactFormRef.current?.scrollIntoView({ behavior: "smooth" });
         }}
       />
       <div ref={aboutRef}>
@@ -36,8 +39,8 @@ export default function Home() {
       <div ref={holidaysRef}>
         <HolidaysPlans />
       </div>
-      <div ref={contactRef}>
-        <ContactUs />
+      <div>
+        <ContactUs formRef={contactFormRef} />
       </div>
     </div>
   );

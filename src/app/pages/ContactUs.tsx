@@ -5,7 +5,7 @@ import { CardHoverEffectDemo } from "../components/CardHoverEffect";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-const ContactUs = () => {
+const ContactUs = ({ formRef }: { formRef: React.RefObject<HTMLDivElement> }) => {
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
@@ -93,7 +93,7 @@ ${name}`;
         </div>
 
         {/* Right Side */}
-        <div className="w-full md:w-2/5 m-0 md:m-8 p-6 bg-amber-400 md:rounded-bl-4xl md:rounded-tl-4xl relative">
+        <div ref={formRef} className="w-full md:w-2/5 m-0 md:m-8 p-6 bg-amber-400 md:rounded-bl-4xl md:rounded-tl-4xl relative">
           {/* <BackgroundBeamsWithCollisionDemo/> */}
           <div>
             <h3 className="text-3xl font-extrabold py-4">Contact Us</h3>
