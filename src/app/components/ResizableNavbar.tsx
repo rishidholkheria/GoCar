@@ -1,11 +1,13 @@
 "use client";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const Navbar = ({ onScrollTo }: { onScrollTo: (section: string) => void }) => {
   const navItems = [
     { name: "About Us", section: "about" },
     { name: "Find your Ride", section: "fleet" },
+    { name: "Blogs", link: "/blogs" },
     { name: "Travel Deals", section: "holidays" },
     { name: "Contact Us", section: "contact" },
   ];
@@ -21,20 +23,32 @@ const Navbar = ({ onScrollTo }: { onScrollTo: (section: string) => void }) => {
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2">
         {/* Logo */}
         <div className="text-white font-bold text-xl tracking-wider h-full">
-          <img src="/assets/gocar-logo.png" alt="GOCCAR" className="h-10"/>
+          <img src="/assets/gocar-logo.png" alt="GOCCAR" className="h-10" />
         </div>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-6 text-white text-sm font-medium">
-          {navItems.map((item, idx) => (
-            <button
-              key={idx}
-              onClick={() => onScrollTo(item.section)}
-              className="transition px-4 py-2 rounded-xl hover:bg-white/10 hover:backdrop-blur-sm"
-            >
-              {item.name}
-            </button>
-          ))}
+          {navItems.map((item, idx) =>
+            item.link ? (
+              <Link
+                key={idx}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition px-4 py-2 rounded-xl hover:bg-white/10 hover:backdrop-blur-sm"
+              >
+                {item.name}
+              </Link>
+            ) : (
+              <button
+                key={idx}
+                onClick={() => onScrollTo(item.section)}
+                className="transition px-4 py-2 rounded-xl hover:bg-white/10 hover:backdrop-blur-sm"
+              >
+                {item.name}
+              </button>
+            )
+          )}
         </div>
 
         {/* Contact Us Button */}

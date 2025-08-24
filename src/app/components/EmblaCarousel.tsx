@@ -29,7 +29,7 @@ const EmblaCarousel = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full h-2/3 overflow-hidden">
+    <div className="flex flex-col items-center w-full h-4/5 overflow-hidden">
       <Carousel
         className="w-3/4 h-full flex flex-col items-center justify-center rounded-2xl overflow-hidden"
         ref={carouselRef}
@@ -43,7 +43,7 @@ const EmblaCarousel = () => {
                 controls
                 playsInline
                 onEnded={handleVideoEnd}
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-full object-contain rounded-2xl"
               >
                 <source src={src} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -52,7 +52,7 @@ const EmblaCarousel = () => {
           ))}
         </CarouselContent>
 
-        <div className="flex justify-center gap-4 mt-5 relative z-10">
+        <div className="flex justify-center gap-4 mt-10 relative z-10">
           <CarouselPrevious className="static" data-carousel-prev />
           <CarouselNext className="static" data-carousel-next />
         </div>

@@ -93,7 +93,7 @@ const TaxiCarousel = () => {
               className="pl-1 md:basis-1/2 lg:basis-1/4 flex"
             >
               <div className="flex flex-col w-full rounded-2xl relative bg-white shadow-md">
-                <Card className="p-0">
+                <Card className="p-0 m-1">
                   <CardContent className="p-0">
                     <div className="w-full relative flex flex-col justify-center items-center p-2 text-gray-700">
                       <h2 className="text-[20px] font-bold">{car.carName}</h2>
@@ -117,10 +117,10 @@ const TaxiCarousel = () => {
           ))}
         </CarouselContent>
 
-        <div className="flex justify-center gap-4 mt-10 mb-2">
+        {/* <div className="flex justify-center gap-4 mt-10 mb-2">
           <CarouselPrevious className="static cursor-pointer" />
           <CarouselNext className="static cursor-pointer" />
-        </div>
+        </div> */}
       </Carousel>
     </div>
   );
